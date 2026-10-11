@@ -14,7 +14,7 @@ export default defineConfig(ctx => {
     boot: ["i18n"],
 
     // https://v2.quasar.dev/quasar-cli-vite/quasar-config-file#css
-    css: ["app.scss"],
+    css: ["app.scss", "tailwind.css"],
 
     // https://github.com/quasarframework/quasar/tree/dev/extras
     extras: [
@@ -60,6 +60,7 @@ export default defineConfig(ctx => {
       // viteVuePluginOptions: {},
 
       vitePlugins: [
+        ["@tailwindcss/vite", {}],
         [
           "@intlify/unplugin-vue-i18n/vite",
           {
@@ -68,7 +69,7 @@ export default defineConfig(ctx => {
 
             // if you want to use named tokens in your Vue I18n messages, such as 'Hello {name}',
             // you need to set `runtimeOnly: false`
-            // runtimeOnly: false,
+            runtimeOnly: false,
 
             ssr: ctx.mode.ssr || ctx.mode.ssg,
 
